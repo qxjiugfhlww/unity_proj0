@@ -1,0 +1,3 @@
+!.gitignore
+!Scripts/*.cs
+!blender.txt

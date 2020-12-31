@@ -18,6 +18,9 @@ public class PlayerController : MonoBehaviour
     private float Gravity = 20.0f;
 
     private Vector3 _moveDir = Vector3.zero;
+
+    public Inventory inventory;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -43,9 +46,14 @@ public class PlayerController : MonoBehaviour
             _moveDir = transform.TransformDirection(_moveDir);
             _moveDir *= Speed;
         }
-        
-        
+    }
 
-
+    private void OnControllerColliderHit(ControllerColliderHit hit)
+    {
+        IInventoryItem item = hit.collider.GetComponent<IInventoryItem>();
+        if (item != null)
+        {
+            inventory.AddItem(item);
+        }
     }
 }

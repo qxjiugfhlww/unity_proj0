@@ -5,9 +5,10 @@ using UnityEngine.EventSystems;
 
 public class ItemDragHandler : MonoBehaviour, IDragHandler, IEndDragHandler
 {
-    public IInventoryItem Item { get; set; }
+    public InventoryItemBase Item { get; set; }
     public void OnDrag(PointerEventData eventData)
     {
+        print(Input.mousePosition);
         transform.position = Input.mousePosition;
         //throw new System.NotImplementedException();
     }

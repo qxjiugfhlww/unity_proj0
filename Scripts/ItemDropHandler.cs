@@ -7,19 +7,19 @@ public class ItemDropHandler : MonoBehaviour, IDropHandler
 {
 
     public Inventory _Inventory;
-    IInventoryItem item;
+    //IInventoryItem item;
     public void OnDrop(PointerEventData eventData)
     {
-        print("eventData "+ eventData.pointerDrag);
         RectTransform invPanel = transform as RectTransform;
 
         if (!RectTransformUtility.RectangleContainsScreenPoint(invPanel, Input.mousePosition))
-        {
-            InventoryItemBase item = (InventoryItemBase)eventData.pointerDrag.gameObject.GetComponent<ItemDragHandler>().Item;
+        {                           //(InventoryItemBase)
+            InventoryItemBase item = eventData.pointerDrag.gameObject.GetComponent<ItemDragHandler>().Item;
+            print("item = " + item);
             if (item != null)
             {
                 _Inventory.RemoveItem(item);
-                //item.OnDrop();
+                item.OnDrop();
             }
 
 

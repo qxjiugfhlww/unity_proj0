@@ -2,14 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class AK74 : InventoryItemBase
+public class TomatoSoup : InventoryItemBase
 {
     /*
     public override string Name
     {
         get
         {
-            return "AK74";
+            return "TomatoSoup";
         }
     }
     */

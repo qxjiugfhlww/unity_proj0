@@ -4,9 +4,8 @@ using UnityEngine;
 
 public class PlayerCamera : MonoBehaviour
 {
-    //All the variables used in this class(Look below to see what they do. :D   )
-    private const float Y_ANGLE_MIN = 0.0f;
-    private const float Y_ANGLE_MAX = 50.0f;
+    private const float Y_ANGLE_MIN = -70.0f;
+    private const float Y_ANGLE_MAX = 70.0f;
     private const float DISTANCE_MAX = 5.0f;
     private const float DISTANCE_MIN = 0.1f;
     private const float TRANS_MIN = 1.0f;
@@ -21,8 +20,8 @@ public class PlayerCamera : MonoBehaviour
     public float distance = 5.0f;
     private float currentX = 0.0f;
     private float currentY = 0.0f;
-    private float sensitivityX = 5.0f;
-    private float sensitivityY = 5.0f;
+    private float sensitivityX = 10.0f;
+    private float sensitivityY = 10.0f;
     private float trandis;
 
     public Vector3 height = new Vector3(0, 0, 0);
@@ -31,8 +30,6 @@ public class PlayerCamera : MonoBehaviour
 
     private void Start()
     {
-
-        //Makes camTransform a transform. :)
         camTransform = transform;
         //Sets variable cam value to the main camera
         cam = Camera.main;
@@ -45,7 +42,6 @@ public class PlayerCamera : MonoBehaviour
         //Makes the camera move by looking at the axis of the mouse(Also multiplied by the seisitivity.)
         currentX += Input.GetAxis("Mouse X") * sensitivityX;
         currentY += -Input.GetAxis("Mouse Y") * sensitivityY;
-
         //Limits the Y variable
         currentY = Mathf.Clamp(currentY, Y_ANGLE_MIN, Y_ANGLE_MAX);
 
@@ -77,7 +73,6 @@ public class PlayerCamera : MonoBehaviour
 
         //Creates an quaternion for rotation(too bad that we cannot use Vector3. :D   )
         Quaternion rotation = Quaternion.Euler(currentY, currentX, 0);
-
         //Sets the cameras position and makes it look at player.
         camTransform.position = lookAt.position + height + rotation * dir;
         camTransform.LookAt(lookAt.position + height);

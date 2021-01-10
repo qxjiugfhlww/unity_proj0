@@ -11,8 +11,7 @@ public class HealthBar : MonoBehaviour
     public int Max;
     private int mCurrentValue;
     private float mCurrentPercent;
-
-    public void SetHealth(int health)
+    public void SetValue(int health)
     {
         if (health != mCurrentValue)
         {
@@ -26,6 +25,7 @@ public class HealthBar : MonoBehaviour
                 mCurrentValue = health;
                 mCurrentPercent = (float)mCurrentValue / (float)(Max - Min);
             }
+
             TxtHealth.text = string.Format("{0} %", Mathf.RoundToInt(mCurrentPercent * 100));
             ImgHealthBar.fillAmount = mCurrentPercent;
         }
@@ -41,13 +41,9 @@ public class HealthBar : MonoBehaviour
         get { return mCurrentValue; }
     }
 
-    // Start is called before the first frame update
     void Start()
     {
-        SetHealth(41);
     }
-
-    // Update is called once per frame
     void Update()
     {
         

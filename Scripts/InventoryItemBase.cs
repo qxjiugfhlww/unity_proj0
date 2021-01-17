@@ -65,6 +65,8 @@ public class InventoryItemBase : InteractableItemBase //MonoBehaviour, IInventor
         print("OnPickup()");
         gameObject.SetActive(false);
         print(gameObject);
+        Collider go_collider = GetComponent<Collider>();
+        go_collider.isTrigger = false;
     }
 
 
@@ -85,6 +87,8 @@ public class InventoryItemBase : InteractableItemBase //MonoBehaviour, IInventor
             //item_rb.freezeRotation = false;
             //item_rb.useGravity = true;
             item_rb.constraints = RigidbodyConstraints.None;
+            Collider go_collider = GetComponent<Collider>();
+            go_collider.isTrigger = true;
         }
     }
 

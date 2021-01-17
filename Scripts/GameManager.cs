@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
-    public PlayerController Player;
+    public ThirdPersonInput Player;
     public static GameManager Instance = null;
     void Awake()
     {

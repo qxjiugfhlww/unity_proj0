@@ -8,8 +8,8 @@ public class AidKit : InventoryItemBase
 
     public override void OnUse()
     {
-        GameManager.Instance.Player.Rehab(HealthPoints);
-        GameManager.Instance.Player.inventory.RemoveItem(this);
+        GameManager.Instance.Player.health.Rehab(HealthPoints);
+        GameManager.Instance.Player.itemInterract.inventory.RemoveItem(this);
         Destroy(this.gameObject);
     }
   

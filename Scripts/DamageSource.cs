@@ -14,7 +14,7 @@ public class DamageSource : MonoBehaviour
     private void OnTriggerEnter(Collider other)
     {
         _isCausingDamage = true;
-        PlayerController player = other.gameObject.GetComponent<PlayerController>();
+        Health player = other.gameObject.GetComponent<Health>();
         if(player != null)
         {
             if (Repeating)
@@ -24,7 +24,7 @@ public class DamageSource : MonoBehaviour
         }
     }
 
-    IEnumerator TakeDamage(PlayerController player, float repeatRate)
+    IEnumerator TakeDamage(Health player, float repeatRate)
     {
         while (_isCausingDamage)
         {
@@ -42,8 +42,8 @@ public class DamageSource : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
-        
-        PlayerController player = other.gameObject.GetComponent<PlayerController>();
+
+        Health player = other.gameObject.GetComponent<Health>();
         if (player != null)
         {
             _isCausingDamage = false;
